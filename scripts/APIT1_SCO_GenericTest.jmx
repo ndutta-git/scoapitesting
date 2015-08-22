@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="2.8" jmeter="2.13 r1665067">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="SCO Smartphone App" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="host" elementType="Argument">
+            <stringProp name="Argument.name">host</stringProp>
+            <stringProp name="Argument.value">apptesting.smartclassonline.com</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="contentType" elementType="Argument">
+            <stringProp name="Argument.name">contentType</stringProp>
+            <stringProp name="Argument.value">application/x-www-form-urlencoded</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="connState" elementType="Argument">
+            <stringProp name="Argument.name">connState</stringProp>
+            <stringProp name="Argument.value">keep-alive</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="language" elementType="Argument">
+            <stringProp name="Argument.name">language</stringProp>
+            <stringProp name="Argument.value">en-us</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="encoding" elementType="Argument">
+            <stringProp name="Argument.name">encoding</stringProp>
+            <stringProp name="Argument.value">gzip, deflate</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="SCO API" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1386920045000</longProp>
+        <longProp name="ThreadGroup.end_time">1386920045000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set" enabled="false">
+          <stringProp name="filename">E:\APITesting\Ext_DataSet\APIT1_SCO_GenericTest.txt</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="variableNames">apiPath,loginID,userPassword,indexPage,pageRef</stringProp>
+          <stringProp name="delimiter">,</stringProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Data Set" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="apiPath" elementType="Argument">
+              <stringProp name="Argument.name">apiPath</stringProp>
+              <stringProp name="Argument.value">index.php/restapi</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="loginID" elementType="Argument">
+              <stringProp name="Argument.name">loginID</stringProp>
+              <stringProp name="Argument.value">sarps.nishtha</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="userPassword" elementType="Argument">
+              <stringProp name="Argument.name">userPassword</stringProp>
+              <stringProp name="Argument.value">e10adc3949ba59abbe56e057f20f883e</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="indexPage" elementType="Argument">
+              <stringProp name="Argument.name">indexPage</stringProp>
+              <stringProp name="Argument.value">index?page=1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">App screen page no</stringProp>
+            </elementProp>
+            <elementProp name="pageRef" elementType="Argument">
+              <stringProp name="Argument.name">pageRef</stringProp>
+              <stringProp name="Argument.value">page=1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">for Announcements only</stringProp>
+            </elementProp>
+            <elementProp name="GUID" elementType="Argument">
+              <stringProp name="Argument.name">GUID</stringProp>
+              <stringProp name="Argument.value">43879</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="sesToken" elementType="Argument">
+              <stringProp name="Argument.name">sesToken</stringProp>
+              <stringProp name="Argument.value">KXmQ8VeiRRxGLF3ZRJLS1nPRY</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="SCO App Headers" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">${contentType}</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Connection</stringProp>
+              <stringProp name="Header.value">${connState}</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept-Language</stringProp>
+              <stringProp name="Header.value">${language}</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept-Encoding</stringProp>
+              <stringProp name="Header.value">${encoding}</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="Smartlphone App Login" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="SoapSampler.URL_DATA">http://${host}/${apiPath}/ApiUser/login</stringProp>
+          <stringProp name="HTTPSamper.xml_data">{
+       &quot;username&quot;:&quot;${loginID}&quot;,
+       &quot;password&quot;:&quot;${userPassword}&quot;
+}</stringProp>
+          <stringProp name="SoapSampler.xml_data_file"></stringProp>
+          <stringProp name="SoapSampler.SOAP_ACTION"></stringProp>
+          <stringProp name="SoapSampler.SEND_SOAP_ACTION">true</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+        </SoapSampler>
+        <hashTree>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="GUID Extractor" enabled="false">
+            <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+            <stringProp name="RegexExtractor.refname">GUID</stringProp>
+            <stringProp name="RegexExtractor.regex">&quot;guid&quot;:&quot;(.+?)&quot;</stringProp>
+            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.default">Ooops!!</stringProp>
+            <stringProp name="RegexExtractor.match_number">0</stringProp>
+          </RegexExtractor>
+          <hashTree/>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Session Token Extractor" enabled="false">
+            <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+            <stringProp name="RegexExtractor.refname">sesToken</stringProp>
+            <stringProp name="RegexExtractor.regex">&quot;session_token&quot;:&quot;(.+?)&quot;</stringProp>
+            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.default">Ooops!!</stringProp>
+            <stringProp name="RegexExtractor.match_number">0</stringProp>
+          </RegexExtractor>
+          <hashTree/>
+        </hashTree>
+        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="Messages" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="SoapSampler.URL_DATA">http://${host}/${apiPath}/Messages/${indexPage}</stringProp>
+          <stringProp name="HTTPSamper.xml_data">{
+      &quot;guid&quot;:&quot;${GUID}&quot;,
+      &quot;session_token&quot;:&quot;${sesToken}&quot;,
+      &quot;f&quot;:&quot;all&quot;
+}</stringProp>
+          <stringProp name="SoapSampler.xml_data_file"></stringProp>
+          <stringProp name="SoapSampler.SOAP_ACTION"></stringProp>
+          <stringProp name="SoapSampler.SEND_SOAP_ACTION">true</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+        </SoapSampler>
+        <hashTree/>
+        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="Wall Posts" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="SoapSampler.URL_DATA">http://${host}/${apiPath}/WallPosts/${indexPage}</stringProp>
+          <stringProp name="HTTPSamper.xml_data">{
+      &quot;guid&quot;:&quot;${GUID}&quot;,
+      &quot;session_token&quot;:&quot;${sesToken}&quot;,
+      &quot;w&quot;:&quot;&quot;
+}</stringProp>
+          <stringProp name="SoapSampler.xml_data_file"></stringProp>
+          <stringProp name="SoapSampler.SOAP_ACTION"></stringProp>
+          <stringProp name="SoapSampler.SEND_SOAP_ACTION">true</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+        </SoapSampler>
+        <hashTree/>
+        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="Events" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="SoapSampler.URL_DATA">http://${host}/${apiPath}/Events/${indexPage}</stringProp>
+          <stringProp name="HTTPSamper.xml_data">{
+     &quot;date&quot;:&quot;&quot;,
+      &quot;session_token&quot;:&quot;${sesToken}&quot;,
+      &quot;group&quot;:&quot;&quot;,
+      &quot;guid&quot;:&quot;${GUID}&quot;
+}</stringProp>
+          <stringProp name="SoapSampler.xml_data_file"></stringProp>
+          <stringProp name="SoapSampler.SOAP_ACTION"></stringProp>
+          <stringProp name="SoapSampler.SEND_SOAP_ACTION">true</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+        </SoapSampler>
+        <hashTree/>
+        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="Picture Gallery" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="SoapSampler.URL_DATA">http://${host}/${apiPath}/PictureGallery/${indexPage}</stringProp>
+          <stringProp name="HTTPSamper.xml_data">{
+      &quot;guid&quot;:&quot;${GUID}&quot;,
+      &quot;session_token&quot;:&quot;${sesToken}&quot;,
+      &quot;group&quot;:&quot;&quot;
+}</stringProp>
+          <stringProp name="SoapSampler.xml_data_file"></stringProp>
+          <stringProp name="SoapSampler.SOAP_ACTION"></stringProp>
+          <stringProp name="SoapSampler.SEND_SOAP_ACTION">true</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+        </SoapSampler>
+        <hashTree/>
+        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="Announcements" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="SoapSampler.URL_DATA">http://${host}/${apiPath}/Announcements/myannouncements?${pageRef}</stringProp>
+          <stringProp name="HTTPSamper.xml_data">{
+      &quot;guid&quot;:&quot;${GUID}&quot;,
+      &quot;session_token&quot;:&quot;${sesToken}&quot;
+}</stringProp>
+          <stringProp name="SoapSampler.xml_data_file"></stringProp>
+          <stringProp name="SoapSampler.SOAP_ACTION"></stringProp>
+          <stringProp name="SoapSampler.SEND_SOAP_ACTION">true</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+        </SoapSampler>
+        <hashTree/>
+        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="Assignment" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="SoapSampler.URL_DATA">http://${host}/${apiPath}/Assignment/${indexPage}</stringProp>
+          <stringProp name="HTTPSamper.xml_data">{
+      &quot;guid&quot;:&quot;${GUID}&quot;,
+      &quot;session_token&quot;:&quot;${sesToken}&quot;,
+}</stringProp>
+          <stringProp name="SoapSampler.xml_data_file"></stringProp>
+          <stringProp name="SoapSampler.SOAP_ACTION"></stringProp>
+          <stringProp name="SoapSampler.SEND_SOAP_ACTION">true</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+        </SoapSampler>
+        <hashTree/>
+        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="Smartclass Subjects" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="SoapSampler.URL_DATA">http://${host}/${apiPath}/Content/getSubjects</stringProp>
+          <stringProp name="HTTPSamper.xml_data">{
+      &quot;guid&quot;:&quot;${GUID}&quot;,
+      &quot;session_token&quot;:&quot;${sesToken}&quot;
+}</stringProp>
+          <stringProp name="SoapSampler.xml_data_file"></stringProp>
+          <stringProp name="SoapSampler.SOAP_ACTION"></stringProp>
+          <stringProp name="SoapSampler.SEND_SOAP_ACTION">true</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+        </SoapSampler>
+        <hashTree>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Class Level Extractor" enabled="true">
+            <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+            <stringProp name="RegexExtractor.refname">classLevel</stringProp>
+            <stringProp name="RegexExtractor.regex">&quot;level_id&quot;:&quot;(.+?)&quot;</stringProp>
+            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.default">Ooops!!</stringProp>
+            <stringProp name="RegexExtractor.match_number">2</stringProp>
+          </RegexExtractor>
+          <hashTree/>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Subject ID Extractor" enabled="true">
+            <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+            <stringProp name="RegexExtractor.refname">subjectCode</stringProp>
+            <stringProp name="RegexExtractor.regex">&quot;id&quot;:(\d+)</stringProp>
+            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.default">Ooops!!</stringProp>
+            <stringProp name="RegexExtractor.match_number">3</stringProp>
+          </RegexExtractor>
+          <hashTree/>
+        </hashTree>
+        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="Smartclass Books" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="SoapSampler.URL_DATA">http://${host}/${apiPath}/Content/getBooks</stringProp>
+          <stringProp name="HTTPSamper.xml_data">{
+      &quot;level_id&quot;:&quot;${classLevel}&quot;,
+      &quot;session_token&quot;:&quot;${sesToken}&quot;,
+      &quot;subject_id&quot;:&quot;${subjectCode}&quot;,
+      &quot;guid&quot;:&quot;${GUID}&quot;
+}</stringProp>
+          <stringProp name="SoapSampler.xml_data_file"></stringProp>
+          <stringProp name="SoapSampler.SOAP_ACTION"></stringProp>
+          <stringProp name="SoapSampler.SEND_SOAP_ACTION">true</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+        </SoapSampler>
+        <hashTree>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Book ID Extractor" enabled="true">
+            <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+            <stringProp name="RegexExtractor.refname">bookID</stringProp>
+            <stringProp name="RegexExtractor.regex">&quot;BookID&quot;:(\d+)</stringProp>
+            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.default">Ooops!!</stringProp>
+            <stringProp name="RegexExtractor.match_number">1</stringProp>
+          </RegexExtractor>
+          <hashTree/>
+        </hashTree>
+        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="Smartclass TOC" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="SoapSampler.URL_DATA">http://${host}/${apiPath}/Content/getTableOfContents</stringProp>
+          <stringProp name="HTTPSamper.xml_data">{
+      &quot;level_id&quot;:&quot;${classLevel}&quot;,
+      &quot;session_token&quot;:&quot;${sesToken}&quot;,
+      &quot;App.Version&quot;:&quot;1.0&quot;,
+      &quot;book_id&quot;:&quot;${bookID}&quot;,
+      &quot;guid&quot;:&quot;${GUID}&quot;
+}</stringProp>
+          <stringProp name="SoapSampler.xml_data_file"></stringProp>
+          <stringProp name="SoapSampler.SOAP_ACTION"></stringProp>
+          <stringProp name="SoapSampler.SEND_SOAP_ACTION">true</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+        </SoapSampler>
+        <hashTree/>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>true</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>true</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <threadCounts>true</threadCounts>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>true</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <threadCounts>true</threadCounts>
+          </value>
+        </objProp>
+        <stringProp name="filename">E:\APITesting\Test_Output\APIT1_Login1.csv</stringProp>
+        <boolProp name="useGroupName">true</boolProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <threadCounts>true</threadCounts>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
