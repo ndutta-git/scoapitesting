@@ -9,7 +9,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="host" elementType="Argument">
             <stringProp name="Argument.name">host</stringProp>
-            <stringProp name="Argument.value">apptesting.smartclassonline.com</stringProp>
+            <stringProp name="Argument.value">apptesting.smartclassonline.com/index.php/restapi</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="contentType" elementType="Argument">
@@ -41,9 +41,9 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
+          <stringProp name="LoopController.loops">2</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.num_threads">3</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
         <longProp name="ThreadGroup.start_time">1386920045000</longProp>
         <longProp name="ThreadGroup.end_time">1386920045000</longProp>
@@ -65,11 +65,6 @@
         <hashTree/>
         <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Data Set" enabled="true">
           <collectionProp name="Arguments.arguments">
-            <elementProp name="apiPath" elementType="Argument">
-              <stringProp name="Argument.name">apiPath</stringProp>
-              <stringProp name="Argument.value">index.php/restapi</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
             <elementProp name="loginID" elementType="Argument">
               <stringProp name="Argument.name">loginID</stringProp>
               <stringProp name="Argument.value">sarps.nishtha</stringProp>
@@ -126,11 +121,11 @@
           </collectionProp>
         </HeaderManager>
         <hashTree/>
-        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="Smartlphone App Login" enabled="false">
+        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="Smartlphone App Login" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="SoapSampler.URL_DATA">http://${host}/${apiPath}/ApiUser/login</stringProp>
+          <stringProp name="SoapSampler.URL_DATA">http://${host}/ApiUser/login</stringProp>
           <stringProp name="HTTPSamper.xml_data">{
        &quot;username&quot;:&quot;${loginID}&quot;,
        &quot;password&quot;:&quot;${userPassword}&quot;
@@ -141,7 +136,7 @@
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
         </SoapSampler>
         <hashTree>
-          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="GUID Extractor" enabled="false">
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="GUID Extractor" enabled="true">
             <stringProp name="RegexExtractor.useHeaders">false</stringProp>
             <stringProp name="RegexExtractor.refname">GUID</stringProp>
             <stringProp name="RegexExtractor.regex">&quot;guid&quot;:&quot;(.+?)&quot;</stringProp>
@@ -150,7 +145,7 @@
             <stringProp name="RegexExtractor.match_number">0</stringProp>
           </RegexExtractor>
           <hashTree/>
-          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Session Token Extractor" enabled="false">
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Session Token Extractor" enabled="true">
             <stringProp name="RegexExtractor.useHeaders">false</stringProp>
             <stringProp name="RegexExtractor.refname">sesToken</stringProp>
             <stringProp name="RegexExtractor.regex">&quot;session_token&quot;:&quot;(.+?)&quot;</stringProp>
@@ -164,7 +159,7 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="SoapSampler.URL_DATA">http://${host}/${apiPath}/Messages/${indexPage}</stringProp>
+          <stringProp name="SoapSampler.URL_DATA">http://${host}/Messages/${indexPage}</stringProp>
           <stringProp name="HTTPSamper.xml_data">{
       &quot;guid&quot;:&quot;${GUID}&quot;,
       &quot;session_token&quot;:&quot;${sesToken}&quot;,
@@ -180,7 +175,7 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="SoapSampler.URL_DATA">http://${host}/${apiPath}/WallPosts/${indexPage}</stringProp>
+          <stringProp name="SoapSampler.URL_DATA">http://${host}/WallPosts/${indexPage}</stringProp>
           <stringProp name="HTTPSamper.xml_data">{
       &quot;guid&quot;:&quot;${GUID}&quot;,
       &quot;session_token&quot;:&quot;${sesToken}&quot;,
@@ -196,7 +191,7 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="SoapSampler.URL_DATA">http://${host}/${apiPath}/Events/${indexPage}</stringProp>
+          <stringProp name="SoapSampler.URL_DATA">http://${host}/Events/${indexPage}</stringProp>
           <stringProp name="HTTPSamper.xml_data">{
      &quot;date&quot;:&quot;&quot;,
       &quot;session_token&quot;:&quot;${sesToken}&quot;,
@@ -213,7 +208,7 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="SoapSampler.URL_DATA">http://${host}/${apiPath}/PictureGallery/${indexPage}</stringProp>
+          <stringProp name="SoapSampler.URL_DATA">http://${host}/PictureGallery/${indexPage}</stringProp>
           <stringProp name="HTTPSamper.xml_data">{
       &quot;guid&quot;:&quot;${GUID}&quot;,
       &quot;session_token&quot;:&quot;${sesToken}&quot;,
@@ -229,7 +224,7 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="SoapSampler.URL_DATA">http://${host}/${apiPath}/Announcements/myannouncements?${pageRef}</stringProp>
+          <stringProp name="SoapSampler.URL_DATA">http://${host}/Announcements/myannouncements?${pageRef}</stringProp>
           <stringProp name="HTTPSamper.xml_data">{
       &quot;guid&quot;:&quot;${GUID}&quot;,
       &quot;session_token&quot;:&quot;${sesToken}&quot;
@@ -244,7 +239,7 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="SoapSampler.URL_DATA">http://${host}/${apiPath}/Assignment/${indexPage}</stringProp>
+          <stringProp name="SoapSampler.URL_DATA">http://${host}/Assignment/${indexPage}</stringProp>
           <stringProp name="HTTPSamper.xml_data">{
       &quot;guid&quot;:&quot;${GUID}&quot;,
       &quot;session_token&quot;:&quot;${sesToken}&quot;,
@@ -259,7 +254,7 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="SoapSampler.URL_DATA">http://${host}/${apiPath}/Content/getSubjects</stringProp>
+          <stringProp name="SoapSampler.URL_DATA">http://${host}/Content/getSubjects</stringProp>
           <stringProp name="HTTPSamper.xml_data">{
       &quot;guid&quot;:&quot;${GUID}&quot;,
       &quot;session_token&quot;:&quot;${sesToken}&quot;
@@ -293,7 +288,7 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="SoapSampler.URL_DATA">http://${host}/${apiPath}/Content/getBooks</stringProp>
+          <stringProp name="SoapSampler.URL_DATA">http://${host}/Content/getBooks</stringProp>
           <stringProp name="HTTPSamper.xml_data">{
       &quot;level_id&quot;:&quot;${classLevel}&quot;,
       &quot;session_token&quot;:&quot;${sesToken}&quot;,
@@ -320,7 +315,7 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="SoapSampler.URL_DATA">http://${host}/${apiPath}/Content/getTableOfContents</stringProp>
+          <stringProp name="SoapSampler.URL_DATA">http://${host}/Content/getTableOfContents</stringProp>
           <stringProp name="HTTPSamper.xml_data">{
       &quot;level_id&quot;:&quot;${classLevel}&quot;,
       &quot;session_token&quot;:&quot;${sesToken}&quot;,
@@ -398,7 +393,7 @@
             <threadCounts>true</threadCounts>
           </value>
         </objProp>
-        <stringProp name="filename">E:\APITesting\Test_Output\APIT1_Login1.csv</stringProp>
+        <stringProp name="filename"></stringProp>
         <boolProp name="useGroupName">true</boolProp>
       </ResultCollector>
       <hashTree/>
