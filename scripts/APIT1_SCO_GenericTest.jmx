@@ -41,9 +41,9 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">2</stringProp>
+          <stringProp name="LoopController.loops">0</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">3</stringProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
         <longProp name="ThreadGroup.start_time">1386920045000</longProp>
         <longProp name="ThreadGroup.end_time">1386920045000</longProp>
@@ -87,14 +87,39 @@
               <stringProp name="Argument.metadata">=</stringProp>
               <stringProp name="Argument.desc">for Announcements only</stringProp>
             </elementProp>
-            <elementProp name="GUID" elementType="Argument">
-              <stringProp name="Argument.name">GUID</stringProp>
-              <stringProp name="Argument.value">43879</stringProp>
+            <elementProp name="macAddr" elementType="Argument">
+              <stringProp name="Argument.name">macAddr</stringProp>
+              <stringProp name="Argument.value">6n:5d:1s:es:3p:3l</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
-            <elementProp name="sesToken" elementType="Argument">
-              <stringProp name="Argument.name">sesToken</stringProp>
-              <stringProp name="Argument.value">KXmQ8VeiRRxGLF3ZRJLS1nPRY</stringProp>
+            <elementProp name="deviceName" elementType="Argument">
+              <stringProp name="Argument.name">deviceName</stringProp>
+              <stringProp name="Argument.value">JMeter API Test Suite</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="accessApp" elementType="Argument">
+              <stringProp name="Argument.name">accessApp</stringProp>
+              <stringProp name="Argument.value">JMeter</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="accessAppVer" elementType="Argument">
+              <stringProp name="Argument.name">accessAppVer</stringProp>
+              <stringProp name="Argument.value">2.13</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="osName" elementType="Argument">
+              <stringProp name="Argument.name">osName</stringProp>
+              <stringProp name="Argument.value">Windows 10</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="imeiNo" elementType="Argument">
+              <stringProp name="Argument.name">imeiNo</stringProp>
+              <stringProp name="Argument.value">w1029072015r9660</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="osVer" elementType="Argument">
+              <stringProp name="Argument.name">osVer</stringProp>
+              <stringProp name="Argument.value">10.0</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
           </collectionProp>
@@ -126,10 +151,18 @@
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
           <stringProp name="SoapSampler.URL_DATA">http://${host}/ApiUser/login</stringProp>
-          <stringProp name="HTTPSamper.xml_data">{
-       &quot;username&quot;:&quot;${loginID}&quot;,
-       &quot;password&quot;:&quot;${userPassword}&quot;
-}</stringProp>
+          <stringProp name="HTTPSamper.xml_data">            
+                   {
+	&quot;mac_address&quot;: &quot;${macAddr}&quot;,
+	&quot;username&quot;:&quot;${loginID}&quot;,
+      	 &quot;device_name&quot;: &quot;${deviceName}&quot;,
+	&quot;accessing_app&quot;: &quot;${accessApp}&quot;,
+	&quot;os_name&quot;: &quot;${osName}&quot;,
+	&quot;app_version&quot;: &quot;${accessAppVer}&quot;,
+	&quot;imei_number&quot;: &quot;${imeiNo}&quot;,
+	&quot;password&quot;:&quot;${userPassword}&quot;,
+	&quot;os_version&quot;: &quot;${osVer}&quot;
+                   }</stringProp>
           <stringProp name="SoapSampler.xml_data_file"></stringProp>
           <stringProp name="SoapSampler.SOAP_ACTION"></stringProp>
           <stringProp name="SoapSampler.SEND_SOAP_ACTION">true</stringProp>
@@ -171,7 +204,7 @@
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
         </SoapSampler>
         <hashTree/>
-        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="Wall Posts" enabled="true">
+        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="Wall Posts" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -187,7 +220,7 @@
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
         </SoapSampler>
         <hashTree/>
-        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="Events" enabled="true">
+        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="Events" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -204,7 +237,7 @@
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
         </SoapSampler>
         <hashTree/>
-        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="Picture Gallery" enabled="true">
+        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="Picture Gallery" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -220,7 +253,7 @@
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
         </SoapSampler>
         <hashTree/>
-        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="Announcements" enabled="true">
+        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="Announcements" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -235,7 +268,7 @@
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
         </SoapSampler>
         <hashTree/>
-        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="Assignment" enabled="true">
+        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="Assignment" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -250,7 +283,7 @@
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
         </SoapSampler>
         <hashTree/>
-        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="Smartclass Subjects" enabled="true">
+        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="Smartclass Subjects" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -284,7 +317,7 @@
           </RegexExtractor>
           <hashTree/>
         </hashTree>
-        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="Smartclass Books" enabled="true">
+        <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="Smartclass Books" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
